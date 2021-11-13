@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
 
 function App() {
+
+  const [textAreaText, setTextAreaText] = useState('')
+
+console.log(textAreaText.textarea)
+
+  function handleChange(event) {
+    const {name, value} = event.target
+    setTextAreaText(prevTextAreaText => {
+      return {
+        ...prevTextAreaText,
+        [name]:value
+      }
+    })
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>How Fast Can You Type?
+      </h1>
+      <textarea
+        style={{width: '50%', height: '20em'}}
+        placeholder="Begin typing here"
+        name="textarea"
+        value={textAreaText}
+        onChange={handleChange}
+      />
+      <h4>Seconds Remaining:</h4>
+      <button>Start!</button>
+      <h1>Word Count:</h1>
     </div>
   );
 }

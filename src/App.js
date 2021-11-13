@@ -4,19 +4,24 @@ function App() {
 
   const [textAreaText, setTextAreaText] = useState('')
 
-console.log(textAreaText)
-
   function handleChange(event) {
     event.preventDefault();
-    console.log(event.target.value)
      const {value} = event.target
      setTextAreaText(value)
   }
 
-function handleMap() {
-  setTextAreaText(prevTextAreaText => [...prevTextAreaText, textAreaText])
-}
 
+  function getWordCount() { 
+    const countWordsArray = [...textAreaText];
+    console.log(countWordsArray)
+    const wordsArray = countWordsArray.join('');
+    console.log(wordsArray)
+    //const aWord = wordsArray.indexOf(" ")
+    //console.log(aWord)
+    const newWord = wordsArray.slice(wordsArray.indexOf(" "));
+    console.log(newWord)
+
+  }
 
   return (
     <div className="App">
@@ -31,6 +36,9 @@ function handleMap() {
       />
       <h4>Seconds Remaining:</h4>
       <button>Start!</button>
+      <button
+        onClick={getWordCount}
+      >get count</button>
       <h1>Word Count:</h1>
     </div>
   );

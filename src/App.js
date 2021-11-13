@@ -57,6 +57,7 @@ export default function App() {
       <h4>Seconds Remaining: {timeRemaining}</h4>
       <button
         onClick={handleGameStart}
+        disabled={gameStart === true}
       >Start!</button>
       <h1>Word Count: {wordCount} </h1>
     </div>

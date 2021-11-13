@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function App() {
+export default function App() {
 
   const [textAreaText, setTextAreaText] = useState('')
 
@@ -10,32 +10,37 @@ function App() {
      setTextAreaText(value)
   }
 
-
-//   function getWordCount() { 
-//     const countWordsArray = [...textAreaText];
-//     console.log(countWordsArray)
-//     const wordsArray = countWordsArray.join('');
-//     console.log(wordsArray)
-//     //const aWord = wordsArray.indexOf(" ")
-//     //console.log(aWord)
-//     const newWord = wordsArray.slice(wordsArray.indexOf(" "));
-//     console.log(newWord)
-//   }
-
-let count = 0;
-  function getWordCount2(array) {
-      if (array.length == 0) { 
-        return count;
-    } else {
-        array.slice(array.indexOf(" "));
-        count = count + 1;
-        console.log(count);
-        console.log(array);
-        return getWordCount2(array)
-      }
+  function getWordCount() { 
+    let words = textAreaText.replace(/\s{2,}/g, ' ').trim()
+    console.log(words)
+    let wordsArray = words.split(' ');
+    console.log(wordsArray)
+    return wordsArray.filter(word => word !== '').length
   }
 
-  //console.log(getWordCount2(["this is a test"]))
+  console.log(getWordCount())
+// const string = " this contains   spaces ";    
+// const newString = string.replace(/\s{2,}/g, ' ').trim() 
+// console.log(newString)
+
+//  //let array = ["this is a test"];
+//  let count = 0;
+//  let array = ["this is a test"];
+//    function getWordCount2(array, count) {
+//     let wordArray = array.indexOf(" ");
+//       if (wordArray >= 0) { 
+//         return 'no spaces';
+//     } else {
+//       //return 'spaces'
+//       console.log(array);
+      
+//          //count = count + 1;
+//         //return {count: count, array: array}
+//          //getWordCount2(array, count)    
+//     }
+//   }
+
+//   console.log(getWordCount2(array, count))
 
   return (
     <div className="App">
@@ -51,11 +56,13 @@ let count = 0;
       <h4>Seconds Remaining:</h4>
       <button>Start!</button>
       <button
-        //onClick={getWordCount}
+        onClick={getWordCount}
       >get count</button>
-      <h1>Word Count:</h1>
+      <h1
+        //render={getWordCount(textAreaText)}
+      >Word Count:  </h1>
     </div>
   );
 }
 
-export default App;
+

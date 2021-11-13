@@ -53,6 +53,7 @@ export default function App() {
         name="textarea"
         value={textAreaText}
         onChange={handleChange}
+        disabled ={gameStart === false}
       />
       <h4>Seconds Remaining: {timeRemaining}</h4>
       <button

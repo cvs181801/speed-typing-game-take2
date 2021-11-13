@@ -29,7 +29,9 @@ export default function App() {
         setTimeout(function() {
           setTimeRemaining(prevTime => prevTime - 1)
         }, 1000)  
-     }  
+     } else {
+      setIsTimeRunning(false)
+  }
     },[timeRemaining, gameStart])
   
 

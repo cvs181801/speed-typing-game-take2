@@ -5,6 +5,7 @@ export default function App() {
   const [textAreaText, setTextAreaText] = useState('')
   const [timeRemaining, setTimeRemaining] = useState(5)
   const [gameStart, setGameStart] = useState(false)
+  const [wordCount, setWordCount] = useState(0)
 
   function handleChange(event) {
     event.preventDefault();
@@ -17,7 +18,10 @@ export default function App() {
     console.log(words)
     let wordsArray = words.split(' ');
     console.log(wordsArray)
-    return wordsArray.filter(word => word !== '').length
+    const numOfWords = wordsArray.filter(word => word !== '').length;
+    setWordCount(numOfWords)
+    console.log(numOfWords)
+    console.log(wordCount)
   }
 
   function handleGameStart() {
@@ -27,11 +31,13 @@ export default function App() {
   useEffect(()=> {
      if (gameStart && timeRemaining > 0) {
         setTimeout(function() {
-          setTimeRemaining(prevTime => prevTime - 1)
+            setTimeRemaining(prevTime => prevTime - 1)
         }, 1000)  
+        getWordCount()
      } else {
-      setIsTimeRunning(false)
+      setGameStart(false)
   }
+  
     },[timeRemaining, gameStart])
   
 
@@ -73,12 +79,10 @@ export default function App() {
       <button
         onClick={handleGameStart}
       >Start!</button>
-      <button
+      {/* <button
         onClick={getWordCount}
-      >get count</button>
-      <h1
-        //render={getWordCount(textAreaText)}
-      >Word Count:  </h1>
+      >get count</button> */}
+      <h1>Word Count: {wordCount} </h1>
     </div>
   );
 }

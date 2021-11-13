@@ -11,17 +11,31 @@ function App() {
   }
 
 
-  function getWordCount() { 
-    const countWordsArray = [...textAreaText];
-    console.log(countWordsArray)
-    const wordsArray = countWordsArray.join('');
-    console.log(wordsArray)
-    //const aWord = wordsArray.indexOf(" ")
-    //console.log(aWord)
-    const newWord = wordsArray.slice(wordsArray.indexOf(" "));
-    console.log(newWord)
+//   function getWordCount() { 
+//     const countWordsArray = [...textAreaText];
+//     console.log(countWordsArray)
+//     const wordsArray = countWordsArray.join('');
+//     console.log(wordsArray)
+//     //const aWord = wordsArray.indexOf(" ")
+//     //console.log(aWord)
+//     const newWord = wordsArray.slice(wordsArray.indexOf(" "));
+//     console.log(newWord)
+//   }
 
+let count = 0;
+  function getWordCount2(array) {
+      if (array.length == 0) { 
+        return count;
+    } else {
+        array.slice(array.indexOf(" "));
+        count = count + 1;
+        console.log(count);
+        console.log(array);
+        return getWordCount2(array)
+      }
   }
+
+  //console.log(getWordCount2(["this is a test"]))
 
   return (
     <div className="App">
@@ -37,7 +51,7 @@ function App() {
       <h4>Seconds Remaining:</h4>
       <button>Start!</button>
       <button
-        onClick={getWordCount}
+        //onClick={getWordCount}
       >get count</button>
       <h1>Word Count:</h1>
     </div>

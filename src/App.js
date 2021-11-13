@@ -25,19 +25,21 @@ export default function App() {
   }
 
   function handleGameStart() {
+    setTextAreaText('')
     setGameStart(true)
+    setTimeRemaining(5)
   }
 
   useEffect(()=> {
      if (gameStart && timeRemaining > 0) {
+      setWordCount(0)
         setTimeout(function() {
             setTimeRemaining(prevTime => prevTime - 1)
         }, 1000)  
-        getWordCount()
      } else {
       setGameStart(false)
+      getWordCount()
   }
-  
     },[timeRemaining, gameStart])
   
 

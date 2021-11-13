@@ -4,17 +4,23 @@ function App() {
 
   const [textAreaText, setTextAreaText] = useState('')
 
-console.log(textAreaText.textarea)
+console.log(textAreaText)
 
   function handleChange(event) {
     const {name, value} = event.target
     setTextAreaText(prevTextAreaText => {
-      return {
-        ...prevTextAreaText,
-        [name]:value
-      }
-    })
+        return {
+          ...prevTextAreaText,
+          [name]:value
+        }
+      })
   }
+
+function handleMap() {
+  setTextAreaText(prevTextAreaText => [...prevTextAreaText, textAreaText])
+}
+
+//const newText = textAreaText.map(letter => <p key={letter}>{letter}</p>)
 
   return (
     <div className="App">
@@ -29,7 +35,11 @@ console.log(textAreaText.textarea)
       />
       <h4>Seconds Remaining:</h4>
       <button>Start!</button>
+      <button
+        onClick={handleMap}
+      >map</button>
       <h1>Word Count:</h1>
+      {/*newText*/}
     </div>
   );
 }

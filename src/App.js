@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 export default function App() {
 
   const [textAreaText, setTextAreaText] = useState('')
-  const [timeRemaining, setTimeRemaining] = useState(5)
+  const [timeRemaining, setTimeRemaining] = useState(10)
   const [gameStart, setGameStart] = useState(false)
   const [wordCount, setWordCount] = useState(0)
 
@@ -27,7 +27,7 @@ export default function App() {
   function handleGameStart() {
     setTextAreaText('')
     setGameStart(true)
-    setTimeRemaining(5)
+    setTimeRemaining(10)
   }
 
   useEffect(()=> {
@@ -42,29 +42,6 @@ export default function App() {
   }
     },[timeRemaining, gameStart])
   
-
-// const string = " this contains   spaces ";    
-// const newString = string.replace(/\s{2,}/g, ' ').trim() 
-// console.log(newString)
-
-//  //let array = ["this is a test"];
-//  let count = 0;
-//  let array = ["this is a test"];
-//    function getWordCount2(array, count) {
-//     let wordArray = array.indexOf(" ");
-//       if (wordArray >= 0) { 
-//         return 'no spaces';
-//     } else {
-//       //return 'spaces'
-//       console.log(array);
-      
-//          //count = count + 1;
-//         //return {count: count, array: array}
-//          //getWordCount2(array, count)    
-//     }
-//   }
-
-//   console.log(getWordCount2(array, count))
 
   return (
     <div className="App">
@@ -81,9 +58,6 @@ export default function App() {
       <button
         onClick={handleGameStart}
       >Start!</button>
-      {/* <button
-        onClick={getWordCount}
-      >get count</button> */}
       <h1>Word Count: {wordCount} </h1>
     </div>
   );

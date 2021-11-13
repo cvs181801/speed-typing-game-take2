@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 export default function App() {
 
   const [textAreaText, setTextAreaText] = useState('')
+  const [timeRemaining, setTimeRemaining] = useState(5)
 
   function handleChange(event) {
     event.preventDefault();
@@ -18,7 +19,30 @@ export default function App() {
     return wordsArray.filter(word => word !== '').length
   }
 
-  console.log(getWordCount())
+   useEffect(()=> {
+       setTimeout(function() {
+         if (timeRemaining === 0) {
+    return timeRemaining = 0;
+        } else {
+            //let count = setTimeRemaining(prevTime => prevTime - 1)
+            console.log("count down")
+            console.log(count)
+         }
+       }, 1000)     
+    },[timeRemaining])
+
+// for (let count = 5; count > 0; count - 1) {
+//     console.log("count down")
+// }
+
+  // useEffect(() => {
+  //   //setTimer(
+  //     //const interval = setInterval(()=> {
+  //       console.log("count")
+  //     }, 1000)
+  //     return ()=>clearInterval(interval)
+  // }, [])
+
 // const string = " this contains   spaces ";    
 // const newString = string.replace(/\s{2,}/g, ' ').trim() 
 // console.log(newString)
@@ -53,7 +77,9 @@ export default function App() {
         value={textAreaText}
         onChange={handleChange}
       />
-      <h4>Seconds Remaining:</h4>
+      <h4 
+        render={()=>{}}
+      >Seconds Remaining: {timeRemaining}</h4>
       <button>Start!</button>
       <button
         onClick={getWordCount}

@@ -4,6 +4,7 @@ export default function App() {
 
   const [textAreaText, setTextAreaText] = useState('')
   const [timeRemaining, setTimeRemaining] = useState(5)
+  const [gameStart, setGameStart] = useState(false)
 
   function handleChange(event) {
     event.preventDefault();
@@ -20,28 +21,14 @@ export default function App() {
   }
 
    useEffect(()=> {
-       setTimeout(function() {
-         if (timeRemaining === 0) {
-    return timeRemaining = 0;
-        } else {
-            //let count = setTimeRemaining(prevTime => prevTime - 1)
-            console.log("count down")
-            console.log(count)
-         }
-       }, 1000)     
+     if (timeRemaining > 0) {
+        setTimeout(function() {
+          setTimeRemaining(prevTime => prevTime - 1)
+        }, 1000)  
+     }  
     },[timeRemaining])
 
-// for (let count = 5; count > 0; count - 1) {
-//     console.log("count down")
-// }
 
-  // useEffect(() => {
-  //   //setTimer(
-  //     //const interval = setInterval(()=> {
-  //       console.log("count")
-  //     }, 1000)
-  //     return ()=>clearInterval(interval)
-  // }, [])
 
 // const string = " this contains   spaces ";    
 // const newString = string.replace(/\s{2,}/g, ' ').trim() 

@@ -20,15 +20,18 @@ export default function App() {
     return wordsArray.filter(word => word !== '').length
   }
 
-   useEffect(()=> {
-     if (timeRemaining > 0) {
+  function handleGameStart() {
+    setGameStart(true)
+  }
+
+  useEffect(()=> {
+     if (gameStart && timeRemaining > 0) {
         setTimeout(function() {
           setTimeRemaining(prevTime => prevTime - 1)
         }, 1000)  
      }  
-    },[timeRemaining])
-
-
+    },[timeRemaining, gameStart])
+  
 
 // const string = " this contains   spaces ";    
 // const newString = string.replace(/\s{2,}/g, ' ').trim() 
@@ -64,10 +67,10 @@ export default function App() {
         value={textAreaText}
         onChange={handleChange}
       />
-      <h4 
-        render={()=>{}}
-      >Seconds Remaining: {timeRemaining}</h4>
-      <button>Start!</button>
+      <h4>Seconds Remaining: {timeRemaining}</h4>
+      <button
+        onClick={handleGameStart}
+      >Start!</button>
       <button
         onClick={getWordCount}
       >get count</button>

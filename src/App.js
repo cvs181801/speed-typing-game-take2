@@ -56,6 +56,9 @@ export default function App() {
         onChange={handleChange}
         disabled ={gameStart === false}
       />
+      <div
+        className="keyboard"
+      >
       <h4>Seconds Remaining: {timeRemaining}</h4>
       <button 
         className="button"
@@ -63,6 +66,7 @@ export default function App() {
         disabled={gameStart === true}
       >Start!</button>
       <h1>Word Count: {wordCount} </h1>
+      
 
       <p className="manifesto">This is our world now... the world of the electron and the switch, the
           beauty of the baud.  We make use of a service already existing without paying
@@ -82,6 +86,7 @@ export default function App() {
           but you can't stop us all... after all, we're all alike.  
 
                                         +++The Mentor+++</p>
+          </div>
     </div>
   );
 }

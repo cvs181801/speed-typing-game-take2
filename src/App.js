@@ -50,7 +50,7 @@ export default function App() {
       
       <textarea
         style={{width: '50%', height: '20em'}}
-        placeholder="Start typing here"
+        placeholder="Click the Start button to start typing here!"
         name="textarea"
         value={textAreaText}
         onChange={handleChange}

@@ -29,6 +29,7 @@ textarea {
 
 .manifesto {
   line-height: 1.2rem;
+  margin-top: 2.3em;
   font-size: .8rem;
   color: ghostwhite;
   text-transform: uppercase;
@@ -68,4 +69,6 @@ textarea {
   max-width: 10em;
   margin: 0 auto .5em auto;
   padding: .3em;
+  line-height: 1.3rem;
+  
 }

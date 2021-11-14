@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 export default function App() {
 
   const [textAreaText, setTextAreaText] = useState('')
-  const [timeRemaining, setTimeRemaining] = useState(30)
+  const [timeRemaining, setTimeRemaining] = useState(60)
   const [gameStart, setGameStart] = useState(false)
   const [wordCount, setWordCount] = useState(0)
 
@@ -23,7 +23,7 @@ export default function App() {
   function handleGameStart() {
     setTextAreaText('')
     setGameStart(true)
-    setTimeRemaining(30)
+    setTimeRemaining(60)
   }
 
   useEffect(()=> {
@@ -79,7 +79,7 @@ export default function App() {
           for.
 
                   I am a hacker, and this is my manifesto.  You may stop this individual,
-          but you can't stop us all... after all, we're all alike.
+          but you can't stop us all... after all, we're all alike.  
 
                                         +++The Mentor+++</p>
     </div>

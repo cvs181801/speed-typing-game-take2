@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 export default function App() {
 
   const [textAreaText, setTextAreaText] = useState('')
-  const [timeRemaining, setTimeRemaining] = useState(10)
+  const [timeRemaining, setTimeRemaining] = useState(30)
   const [gameStart, setGameStart] = useState(false)
   const [wordCount, setWordCount] = useState(0)
 
@@ -15,19 +15,15 @@ export default function App() {
 
   function getWordCount() { 
     let words = textAreaText.replace(/\s{2,}/g, ' ').trim()
-    console.log(words)
     let wordsArray = words.split(' ');
-    console.log(wordsArray)
     const numOfWords = wordsArray.filter(word => word !== '').length;
     setWordCount(numOfWords)
-    console.log(numOfWords)
-    console.log(wordCount)
   }
 
   function handleGameStart() {
     setTextAreaText('')
     setGameStart(true)
-    setTimeRemaining(10)
+    setTimeRemaining(30)
   }
 
   useEffect(()=> {
@@ -45,11 +41,12 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>How Fast Can You Type?
-      </h1>
+      <h1>It's 1991 and you're on dial-up.</h1>  
+      <h2>Try to type the Hacker's Manifesto quote from the Mentor before your mom walks into the room!</h2>
+      
       <textarea
         style={{width: '50%', height: '20em'}}
-        placeholder="Begin typing here"
+        placeholder="Start typing here"
         name="textarea"
         value={textAreaText}
         onChange={handleChange}
@@ -61,8 +58,28 @@ export default function App() {
         disabled={gameStart === true}
       >Start!</button>
       <h1>Word Count: {wordCount} </h1>
+
+      <p>This is our world now... the world of the electron and the switch, the
+beauty of the baud.  We make use of a service already existing without paying
+for what could be dirt-cheap if it wasn't run by profiteering gluttons, and
+you call us criminals.  We explore... and you call us criminals.  We seek
+after knowledge... and you call us criminals.  We exist without skin color,
+without nationality, without religious bias... and you call us criminals.
+You build atomic bombs, you wage wars, you murder, cheat, and lie to us
+and try to make us believe it's for our own good, yet we're the criminals.
+
+        Yes, I am a criminal.  My crime is that of curiosity.  My crime is
+that of judging people by what they say and think, not what they look like.
+My crime is that of outsmarting you, something that you will never forgive me
+for.
+
+        I am a hacker, and this is my manifesto.  You may stop this individual,
+but you can't stop us all... after all, we're all alike.
+
+                               +++The Mentor+++</p>
     </div>
   );
 }
+
 
 

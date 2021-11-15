@@ -51,7 +51,7 @@ textarea {
 .header2 {
   color: ghostwhite;
   font-size: 1.5rem;
-  text-shadow: 0px 0px 40px #b300a4;
+  text-shadow: #b300a4 2px 3px;
 }
 
 .keyboard {
@@ -70,5 +70,5 @@ textarea {
   margin: 0 auto .5em auto;
   padding: .3em;
   line-height: 1.3rem;
-  
+  text-shadow: #b300a4 2px 3px;
 }

@@ -43,7 +43,7 @@ export default function App() {
     <div className="App">
       <h1
         className="header1"
-      >It's 1991 and you're on dial-up.</h1>  
+      >🌴 It's 1995 and you're on dial-up. 🌴</h1>  
       <h2
         className="header2"
       >Try to type the Hacker's Manifesto quote from the Mentor before your mom walks into the room!</h2>

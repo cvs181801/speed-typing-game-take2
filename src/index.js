@@ -4,10 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@1,700&display=swap');
-</style>
-
 ReactDOM.render(
   <React.StrictMode>
     <App />

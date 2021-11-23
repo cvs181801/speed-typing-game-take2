@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import DOMPurify from 'dompurify'
 //import keyboardImage from './90skeyboard.jpeg'
 //import image from './1990s.jpeg'
 
@@ -12,7 +13,7 @@ export default function App() {
   function handleChange(event) {
     event.preventDefault();
      const {value} = event.target
-     setTextAreaText(value)
+     setTextAreaText(DOMPurify.sanitize(value))
   }
 
   function getWordCount() { 

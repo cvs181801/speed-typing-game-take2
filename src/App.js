@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import DOMPurify from 'dompurify'
 import keyboardImage from './90skeyboard.jpeg'
 import image from './1990s.jpeg'
+import styled from 'styled-components'
 
 export default function App() {
 
@@ -40,20 +41,41 @@ export default function App() {
       getWordCount()
   }
     },[timeRemaining, gameStart])
-  
+
+    const Body = styled.div`
+    color: navy;
+    text-align: center;
+    background-image: url(${image});
+    `;
+    //linear-gradient(to bottom, rgba(199, 199, 1, 0.5), rgba(0, 0, 85, 0.5));
+
+    const Header = styled.h1`
+    color: ghostwhite;
+    font-size: 1.5rem;
+    text-shadow: #b300a4 2px 3px;
+    `;
+
+    const Header2 = styled.h2`
+    color: ghostwhite;
+    font-size: 1.5rem;
+    text-shadow: #b300a4 2px 3px;
+    `
+
+    const Keyboard = styled.div`
+      background: url(${keyboardImage});
+    `;
+    //linear-gradient(to right, rgba(247, 70, 217, 0.5), rgba(0, 255, 21, 0.5),
 
   return (
-    <div 
-      className="App"
-      styles={{backgroundImage: `url${image}`}}
-    >
-      <h1
-        className="header1"
-      >🌴 It's 1995 and you're on dial-up. 🌴</h1>  
-      <h2
-        className="header2"
-      >Try to type the Hacker's Manifesto quote from the Mentor before your mom walks into the room!</h2>
+    <Body>
+      <Header>
+          🌴 It's 1995 and you're on dial-up. 🌴
+      </Header>
+
+      <Header2
+      >Try to type the Hacker's Manifesto quote from the Mentor before your mom walks into the room!</Header2>
       
+ 
       <textarea
         style={{width: '50%', height: '20em'}}
         placeholder="Click the Start button to start typing here!"
@@ -62,41 +84,38 @@ export default function App() {
         onChange={handleChange}
         disabled ={gameStart === false}
       />
-      <div
-        className="keyboard"
-        styles={{backgroundImage: `url${keyboardImage}`}}
-      >
-      <h4>Seconds Remaining: {timeRemaining}</h4>
-      <button 
-        className="button"
-        onClick={handleGameStart}
-        disabled={gameStart === true}
-      >Start!</button>
-      <h1>Word Count: {wordCount} </h1>
       
+       <Keyboard>
+       <h4>Seconds Remaining: {timeRemaining}</h4>
+       <button 
+          className="button"
+          onClick={handleGameStart}
+          disabled={gameStart === true}
+        >Start!</button>
+        <h1>Word Count: {wordCount} </h1>
 
-      <p className="manifesto">This is our world now... the world of the electron and the switch, the
-          beauty of the baud.  We make use of a service already existing without paying
-          for what could be dirt-cheap if it wasn't run by profiteering gluttons, and
-          you call us criminals.  We explore... and you call us criminals.  We seek
-          after knowledge... and you call us criminals.  We exist without skin color,
-          without nationality, without religious bias... and you call us criminals.
-          You build atomic bombs, you wage wars, you murder, cheat, and lie to us
-          and try to make us believe it's for our own good, yet we're the criminals.
+         <p className="manifesto">This is our world now... the world of the electron and the switch, the
+            beauty of the baud.  We make use of a service already existing without paying
+            for what could be dirt-cheap if it wasn't run by profiteering gluttons, and
+            you call us criminals.  We explore... and you call us criminals.  We seek
+            after knowledge... and you call us criminals.  We exist without skin color,
+            without nationality, without religious bias... and you call us criminals.
+            You build atomic bombs, you wage wars, you murder, cheat, and lie to us
+            and try to make us believe it's for our own good, yet we're the criminals.
 
-                  Yes, I am a criminal.  My crime is that of curiosity.  My crime is
-          that of judging people by what they say and think, not what they look like.
-          My crime is that of outsmarting you, something that you will never forgive me
-          for.
+                    Yes, I am a criminal.  My crime is that of curiosity.  My crime is
+            that of judging people by what they say and think, not what they look like.
+            My crime is that of outsmarting you, something that you will never forgive me
+            for.
 
-                  I am a hacker, and this is my manifesto.  You may stop this individual,
-          but you can't stop us all... after all, we're all alike.  
+                    I am a hacker, and this is my manifesto.  You may stop this individual,
+            but you can't stop us all... after all, we're all alike.  
 
-                                        +++The Mentor+++</p>
-          </div>
-    </div>
+                                          +++The Mentor+++</p> 
+                                          
+        </Keyboard>
+           
+    </Body>
   );
 }
-
-
 

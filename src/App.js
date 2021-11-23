@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import DOMPurify from 'dompurify'
-//import keyboardImage from './90skeyboard.jpeg'
-//import image from './1990s.jpeg'
+import keyboardImage from './90skeyboard.jpeg'
+import image from './1990s.jpeg'
 
 export default function App() {
 
@@ -45,7 +45,7 @@ export default function App() {
   return (
     <div 
       className="App"
-      //styles={{backgroundImage: `url${image}`}}
+      styles={{backgroundImage: `url${image}`}}
     >
       <h1
         className="header1"
@@ -64,7 +64,7 @@ export default function App() {
       />
       <div
         className="keyboard"
-        //styles={{backgroundImage: `url${keyboardImage}`}}
+        styles={{backgroundImage: `url${keyboardImage}`}}
       >
       <h4>Seconds Remaining: {timeRemaining}</h4>
       <button 

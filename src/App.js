@@ -42,13 +42,6 @@ export default function App() {
   }
     },[timeRemaining, gameStart])
 
-    const Body = styled.div`
-    color: navy;
-    text-align: center;
-    background-image: url(${image});
-    `;
-    //linear-gradient(to bottom, rgba(199, 199, 1, 0.5), rgba(0, 0, 85, 0.5));
-
     const Header = styled.h1`
     color: ghostwhite;
     font-size: 1.5rem;
@@ -66,8 +59,20 @@ export default function App() {
     `;
     //linear-gradient(to right, rgba(247, 70, 217, 0.5), rgba(0, 255, 21, 0.5),
 
+    const Button = styled.button`
+    background-color: rgb(41, 170, 2);
+    color: rgb(0, 0, 32);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid rgb(1, 58, 1);
+    margin-bottom: 1em;
+    `
+
   return (
-    <Body>
+    <div
+    // style={{background: "url(`'${image}'`)}"}
+    >
       <Header>
           🌴 It's 1995 and you're on dial-up. 🌴
       </Header>
@@ -85,13 +90,12 @@ export default function App() {
         disabled ={gameStart === false}
       />
       
-       <Keyboard>
+       {/* <Keyboard>
        <h4>Seconds Remaining: {timeRemaining}</h4>
-       <button 
-          className="button"
-          onClick={handleGameStart}
-          disabled={gameStart === true}
-        >Start!</button>
+       <Button 
+          disabled = {gameStart}
+          onClick= {handleGameStart}
+       >Start!</Button>
         <h1>Word Count: {wordCount} </h1>
 
          <p className="manifesto">This is our world now... the world of the electron and the switch, the
@@ -113,9 +117,9 @@ export default function App() {
 
                                           +++The Mentor+++</p> 
                                           
-        </Keyboard>
+        </Keyboard> */}
            
-    </Body>
+    </div>
   );
 }
 

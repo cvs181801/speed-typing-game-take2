@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import keyboardImage from './90skeyboard.jpeg'
 import image from './1990s.jpeg'
 
@@ -9,6 +9,7 @@ export default function App() {
   const [timeRemaining, setTimeRemaining] = useState(60)
   const [gameStart, setGameStart] = useState(false)
   const [wordCount, setWordCount] = useState(0)
+  const textboxRef = useRef('null')
 
   function handleChange(event) {
     event.preventDefault();
@@ -23,10 +24,13 @@ export default function App() {
     setWordCount(numOfWords)
   }
 
-  function handleGameStart() {
+  function handleGameStart(event) {
+    event.preventDefault();
+    textboxRef.current.focus()
     setTextAreaText('')
     setGameStart(true)
     setTimeRemaining(60)
+    
   }
 
   useEffect(()=> {
@@ -60,6 +64,7 @@ export default function App() {
         value={textAreaText}
         onChange={handleChange}
         disabled ={gameStart === false}
+        ref={textboxRef}
       />
       
        <div>

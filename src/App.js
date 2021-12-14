@@ -26,12 +26,12 @@ export default function App() {
 
   function handleGameStart(event) {
     event.preventDefault();
+    setGameStart(true)
     textboxRef.current.disabled = false
     textboxRef.current.focus()
     setTextAreaText('')
-    setGameStart(true)
-    setTimeRemaining(60)
     
+    setTimeRemaining(60)
   }
 
   useEffect(()=> {

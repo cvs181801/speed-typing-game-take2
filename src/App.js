@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import DOMPurify from 'dompurify'
 import keyboardImage from './90skeyboard.jpeg'
 import image from './1990s.jpeg'
-import styled from 'styled-components'
+
 
 export default function App() {
 
@@ -13,8 +12,8 @@ export default function App() {
 
   function handleChange(event) {
     event.preventDefault();
-     const {value} = event.target
-     setTextAreaText(DOMPurify.sanitize(value))
+    const {value} = event.target
+    setTextAreaText((value))
   }
 
   function getWordCount() { 
@@ -42,43 +41,16 @@ export default function App() {
   }
     },[timeRemaining, gameStart])
 
-    const Header = styled.h1`
-    color: ghostwhite;
-    font-size: 1.5rem;
-    text-shadow: #b300a4 2px 3px;
-    `;
-
-    const Header2 = styled.h2`
-    color: ghostwhite;
-    font-size: 1.5rem;
-    text-shadow: #b300a4 2px 3px;
-    `
-
-    const Keyboard = styled.div`
-      background: url(${keyboardImage});
-    `;
-    //linear-gradient(to right, rgba(247, 70, 217, 0.5), rgba(0, 255, 21, 0.5),
-
-    const Button = styled.button`
-    background-color: rgb(41, 170, 2);
-    color: rgb(0, 0, 32);
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    cursor: pointer;
-    border: 2px solid rgb(1, 58, 1);
-    margin-bottom: 1em;
-    `
-
   return (
     <div
-    // style={{background: "url(`'${image}'`)}"}
+      style={{backgroundImage: `url(${image})`}}
     >
-      <Header>
+      <h1>
           🌴 It's 1995 and you're on dial-up. 🌴
-      </Header>
+      </h1>
 
-      <Header2
-      >Try to type the Hacker's Manifesto quote from the Mentor before your mom walks into the room!</Header2>
+      <h1
+      >Try to type the Hacker's Manifesto quote from the Mentor before your mom walks into the room!</h1>
       
  
       <textarea
@@ -90,12 +62,12 @@ export default function App() {
         disabled ={gameStart === false}
       />
       
-       {/* <Keyboard>
+       <div>
        <h4>Seconds Remaining: {timeRemaining}</h4>
-       <Button 
+       <button 
           disabled = {gameStart}
           onClick= {handleGameStart}
-       >Start!</Button>
+       >Start!</button>
         <h1>Word Count: {wordCount} </h1>
 
          <p className="manifesto">This is our world now... the world of the electron and the switch, the
@@ -117,7 +89,7 @@ export default function App() {
 
                                           +++The Mentor+++</p> 
                                           
-        </Keyboard> */}
+        </div> 
            
     </div>
   );

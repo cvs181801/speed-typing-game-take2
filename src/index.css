@@ -35,7 +35,7 @@ textarea {
   background-color: rgba(24, 0, 41, .8);
 }
 
-
+/* keyboard: linear-gradient(to right, rgba(247, 70, 217, 0.5), rgba(0, 255, 21, 0.5),*/
 .keyboard > h4,
 .keyboard > h1 {
   color: ghostwhite;

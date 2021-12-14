@@ -26,6 +26,7 @@ export default function App() {
 
   function handleGameStart(event) {
     event.preventDefault();
+    textboxRef.current.disabled = false
     textboxRef.current.focus()
     setTextAreaText('')
     setGameStart(true)
@@ -56,7 +57,7 @@ export default function App() {
       <h1
       >Try to type the Hacker's Manifesto quote from the Mentor before your mom walks into the room!</h1>
       
- 
+ <form>
       <textarea
         style={{width: '50%', height: '20em'}}
         placeholder="Click the Start button to start typing here!"
@@ -73,6 +74,8 @@ export default function App() {
           disabled = {gameStart}
           onClick= {handleGameStart}
        >Start!</button>
+  
+
         <h1>Word Count: {wordCount} </h1>
 
          <p className="manifesto">This is our world now... the world of the electron and the switch, the
@@ -95,6 +98,7 @@ export default function App() {
                                           +++The Mentor+++</p> 
                                           
         </div> 
+        </form>
            
     </div>
   );
